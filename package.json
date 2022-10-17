@@ -1,0 +1,14 @@
+{
+  "name": "tareasapp",
+  "version": "1.0.0",
+  "description": "app de tareas",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "franz schwartz",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
