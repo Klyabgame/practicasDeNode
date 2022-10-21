@@ -1,14 +1,31 @@
-const { inquirerMenu } = require('./helpers/inquirer');
+const { inquirerMenu, pausa, leerInput } = require('./helpers/inquirer');
+/* const Tarea = require('./models/tarea'); */
+const Tareas = require('./models/tareas');
+/* const {mostrarMenu}= require('./helpers/mensajes') */
 
 require('colors');
 /* const {mostrarMenu, pausa}=require('./helpers/mensajes') */
 console.clear();
 const main=async()=>{
     let opt='';
+    const tareas=new Tareas();
     do {
         opt=await inquirerMenu();
-        console.log(opt);
-        if(opt!=='0') await pausa();
+        switch (opt) {
+            case '1':
+                const desc= await leerInput('decripcion: ');
+                tareas.crearTarea(desc);
+                console.log(desc);
+                break;
+        
+            case '2':
+                console.log(tareas.listadoArr);
+                break;
+        }
+
+
+        await pausa();
+        /* if(opt!=='0') await pausa(); */
     } while (opt!=='0');
      
 }
